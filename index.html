@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Techwise - Solar, Electrical, and Kitchen Solutions</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
         body {
             font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
         }
         .hero-bg {
             background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1508921340878-ba53e1f416ec?q=80&w=2070&auto=format&fit=crop');
@@ -21,6 +22,17 @@
              background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1932&auto=format&fit=crop');
              background-size: cover;
              background-position: center;
+             background-attachment: fixed;
+        }
+        /* Animation for elements fading in on scroll */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
@@ -30,7 +42,6 @@
     <header class="bg-black/80 backdrop-blur-sm sticky top-0 z-50 shadow-lg">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <div class="flex items-center space-x-3">
-                <!-- New Logo -->
                 <div class="bg-orange-500 p-2 rounded-full">
                     <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
                 </div>
@@ -41,9 +52,10 @@
             </div>
             <nav class="hidden md:flex space-x-8 items-center">
                 <a href="#services" class="text-gray-300 hover:text-orange-500 transition duration-300">Services</a>
+                <a href="#gallery" class="text-gray-300 hover:text-orange-500 transition duration-300">Gallery</a>
                 <a href="#about" class="text-gray-300 hover:text-orange-500 transition duration-300">About Us</a>
                 <a href="#contact" class="text-gray-300 hover:text-orange-500 transition duration-300">Contact</a>
-                <a href="#contact" class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded-lg transition duration-300">Get a Quote</a>
+                <a href="https://wa.me/923126535563" target="_blank" class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded-lg transition duration-300">Get a Quote</a>
             </nav>
             <button id="mobile-menu-button" class="md:hidden text-white">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
@@ -52,9 +64,10 @@
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden px-6 pt-2 pb-4">
             <a href="#services" class="block py-2 text-gray-300 hover:text-orange-500">Services</a>
+            <a href="#gallery" class="block py-2 text-gray-300 hover:text-orange-500">Gallery</a>
             <a href="#about" class="block py-2 text-gray-300 hover:text-orange-500">About Us</a>
             <a href="#contact" class="block py-2 text-gray-300 hover:text-orange-500">Contact</a>
-            <a href="#contact" class="block mt-2 text-center bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded-lg">Get a Quote</a>
+            <a href="https://wa.me/923126535563" target="_blank" class="block mt-2 text-center bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded-lg">Get a Quote</a>
         </div>
     </header>
 
@@ -72,29 +85,26 @@
         <!-- Services Section -->
         <section id="services" class="py-20 bg-gray-800">
             <div class="container mx-auto px-6">
-                <div class="text-center mb-16">
+                <div class="text-center mb-16 fade-in">
                     <h2 class="text-3xl md:text-4xl font-bold text-white">Our Core Services</h2>
                     <p class="text-gray-400 mt-2 max-w-2xl mx-auto">Comprehensive solutions for commercial and residential needs, delivered with professionalism and care.</p>
                 </div>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Service 1: Solar & Electrical Solutions -->
-                    <div class="bg-gray-900 rounded-lg overflow-hidden shadow-xl transform hover:-translate-y-2 transition duration-300">
+                    <div class="bg-gray-900 rounded-lg overflow-hidden shadow-xl transform hover:-translate-y-2 transition duration-300 fade-in">
                         <img src="https://images.unsplash.com/photo-1545208942-73c0ba4f038f?q=80&w=1770&auto=format&fit=crop" onerror="this.onerror=null;this.src='https://placehold.co/600x400/1A202C/FFA500?text=Solar+Panels';" alt="Solar Panel Installation" class="w-full h-56 object-cover">
                         <div class="p-8">
                             <h3 class="text-2xl font-bold mb-3 text-white">Solar & Electrical Solutions</h3>
-                            <p class="text-gray-400">Expert solar panel installations and comprehensive electrical repairs. We ensure your energy systems are efficient, safe, and reliable for years to come.</p>
+                            <p class="text-gray-400">Expert solar panel installations and comprehensive electrical repairs. We ensure your energy systems are efficient, safe, and reliable.</p>
                         </div>
                     </div>
-                    <!-- Service 2: Commercial Kitchen Equipment -->
-                    <div class="bg-gray-900 rounded-lg overflow-hidden shadow-xl transform hover:-translate-y-2 transition duration-300">
+                    <div class="bg-gray-900 rounded-lg overflow-hidden shadow-xl transform hover:-translate-y-2 transition duration-300 fade-in" style="transition-delay: 100ms;">
                         <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?q=80&w=1935&auto=format&fit=crop" onerror="this.onerror=null;this.src='https://placehold.co/600x400/1A202C/FFA500?text=Kitchen+Equipment';" alt="Commercial Kitchen" class="w-full h-56 object-cover">
                         <div class="p-8">
                             <h3 class="text-2xl font-bold mb-3 text-white">Commercial Kitchen Equipment</h3>
-                            <p class="text-gray-400">High-quality sales and service for commercial kitchen and bakery equipment. We help you build a productive and reliable culinary workspace.</p>
+                            <p class="text-gray-400">High-quality sales and service for commercial kitchen and bakery equipment. Build a productive and reliable culinary workspace.</p>
                         </div>
                     </div>
-                    <!-- Service 3: Professional Maintenance -->
-                    <div class="bg-gray-900 rounded-lg overflow-hidden shadow-xl transform hover:-translate-y-2 transition duration-300 md:col-span-2 lg:col-span-1">
+                    <div class="bg-gray-900 rounded-lg overflow-hidden shadow-xl transform hover:-translate-y-2 transition duration-300 fade-in" style="transition-delay: 200ms;">
                         <img src="https://images.unsplash.com/photo-1542908569-17c661905213?q=80&w=1770&auto=format&fit=crop" onerror="this.onerror=null;this.src='https://placehold.co/600x400/1A202C/FFA500?text=Maintenance';" alt="Maintenance Service" class="w-full h-56 object-cover">
                         <div class="p-8">
                             <h3 class="text-2xl font-bold mb-3 text-white">Maintenance & Repair</h3>
@@ -104,12 +114,56 @@
                 </div>
             </div>
         </section>
+        
+        <!-- Product Gallery Section -->
+        <section id="gallery" class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 fade-in">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">Product Showcase</h2>
+                    <p class="text-gray-400 mt-2 max-w-2xl mx-auto">A glimpse at the quality equipment we offer and install.</p>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <div class="group relative overflow-hidden rounded-lg fade-in">
+                        <img src="https://images.unsplash.com/photo-1625237298528-05f8ab8973c1?q=80&w=1770&auto=format&fit=crop" onerror="this.onerror=null;this.src='https://placehold.co/400x400/1A202C/FFA500?text=Solar+Panels';" alt="Solar Panels" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"><span class="text-white text-lg font-bold">Solar Panels</span></div>
+                    </div>
+                    <div class="group relative overflow-hidden rounded-lg fade-in" style="transition-delay: 100ms;">
+                        <img src="https://images.unsplash.com/photo-1617394390021-a3c692791235?q=80&w=1770&auto=format&fit=crop" onerror="this.onerror=null;this.src='https://placehold.co/400x400/1A202C/FFA500?text=Inverter';" alt="Power Inverter" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"><span class="text-white text-lg font-bold">Inverters</span></div>
+                    </div>
+                    <div class="group relative overflow-hidden rounded-lg fade-in" style="transition-delay: 200ms;">
+                        <img src="https://images.unsplash.com/photo-1621253495473-65063c6b1a5a?q=80&w=1770&auto=format&fit=crop" onerror="this.onerror=null;this.src='https://placehold.co/400x400/1A202C/FFA500?text=Electric+Motor';" alt="Electric Motor" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"><span class="text-white text-lg font-bold">Electric Motors</span></div>
+                    </div>
+                     <div class="group relative overflow-hidden rounded-lg fade-in" style="transition-delay: 300ms;">
+                        <img src="https://images.unsplash.com/photo-1605548109944-904070422b14?q=80&w=1770&auto=format&fit=crop" onerror="this.onerror=null;this.src='https://placehold.co/400x400/1A202C/FFA500?text=Gas+Stove';" alt="Gas Stove" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"><span class="text-white text-lg font-bold">Gas Stoves</span></div>
+                    </div>
+                    <div class="group relative overflow-hidden rounded-lg fade-in" style="transition-delay: 400ms;">
+                        <img src="https://images.unsplash.com/photo-1622708862803-3248551551b4?q=80&w=1932&auto=format&fit=crop" onerror="this.onerror=null;this.src='https://placehold.co/400x400/1A202C/FFA500?text=Deep+Fryer';" alt="Deep Fryer" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"><span class="text-white text-lg font-bold">Deep Fryers</span></div>
+                    </div>
+                    <div class="group relative overflow-hidden rounded-lg fade-in" style="transition-delay: 500ms;">
+                        <img src="https://images.unsplash.com/photo-1565065232237-a5528859b18a?q=80&w=1887&auto=format&fit=crop" onerror="this.onerror=null;this.src='https://placehold.co/400x400/1A202C/FFA500?text=Espresso+Machine';" alt="Espresso Machine" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"><span class="text-white text-lg font-bold">Espresso Machines</span></div>
+                    </div>
+                    <div class="group relative overflow-hidden rounded-lg fade-in" style="transition-delay: 600ms;">
+                        <img src="https://images.unsplash.com/photo-1588111385133-5b4a7a499e02?q=80&w=1770&auto=format&fit=crop" onerror="this.onerror=null;this.src='https://placehold.co/400x400/1A202C/FFA500?text=Breakers';" alt="Circuit Breakers" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"><span class="text-white text-lg font-bold">Circuit Breakers</span></div>
+                    </div>
+                     <div class="group relative overflow-hidden rounded-lg fade-in" style="transition-delay: 700ms;">
+                        <img src="https://images.unsplash.com/photo-1511920183276-5941c3095355?q=80&w=1887&auto=format&fit=crop" onerror="this.onerror=null;this.src='https://placehold.co/400x400/1A202C/FFA500?text=Coffee';" alt="Coffee" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"><span class="text-white text-lg font-bold">Bakery Supplies</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <!-- About Us Section -->
-        <section id="about" class="py-20">
+        <section id="about" class="py-20 bg-gray-800">
             <div class="container mx-auto px-6">
                 <div class="flex flex-col md:flex-row items-center gap-12">
-                    <div class="md:w-1/2">
+                    <div class="md:w-1/2 fade-in">
                         <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Trustworthy. Affordable. Professional.</h2>
                         <p class="text-gray-400 mb-4">At Techwise, we are committed to providing top-tier services that build lasting relationships. Our foundation is built on trust and dependability, ensuring every client receives the honest, high-quality service they deserve.</p>
                         <p class="text-gray-400 mb-6">With years of experience, our team of experts is dedicated to delivering excellence and ensuring complete customer satisfaction. Your trust is not just our slogan; it's our most valuable asset.</p>
@@ -119,7 +173,7 @@
                             <li class="flex items-start"><i class="fas fa-check-circle text-orange-500 mt-1 mr-3"></i><span><strong class="text-white">Customer First:</strong> Your satisfaction is our ultimate priority.</span></li>
                         </ul>
                     </div>
-                    <div class="md:w-1/2">
+                    <div class="md:w-1/2 fade-in" style="transition-delay: 100ms;">
                         <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1769&auto=format&fit=crop" onerror="this.onerror=null;this.src='https://placehold.co/600x400/1A202C/FFA500?text=Our+Team';" alt="Techwise Team" class="rounded-lg shadow-2xl">
                     </div>
                 </div>
@@ -129,17 +183,17 @@
         <!-- Testimonials Section -->
         <section class="testimonial-bg py-20">
             <div class="container mx-auto px-6 text-center">
-                 <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">What Our Clients Say</h2>
-                 <p class="text-gray-300 mb-12 max-w-2xl mx-auto">We are proud to have earned the trust of businesses and homeowners across the region.</p>
+                 <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 fade-in">What Our Clients Say</h2>
+                 <p class="text-gray-300 mb-12 max-w-2xl mx-auto fade-in">We are proud to have earned the trust of businesses and homeowners across the region.</p>
                  <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                     <div class="bg-black/50 backdrop-blur-sm p-8 rounded-lg text-left">
+                     <div class="bg-black/50 backdrop-blur-sm p-8 rounded-lg text-left fade-in">
                          <p class="text-gray-300 mb-4">"Techwise handled our entire commercial kitchen setup. Their team was professional, efficient, and the equipment is top-notch. Highly recommended for any restaurant owner."</p>
                          <div class="flex items-center">
                              <i class="fas fa-star text-orange-500"></i><i class="fas fa-star text-orange-500"></i><i class="fas fa-star text-orange-500"></i><i class="fas fa-star text-orange-500"></i><i class="fas fa-star text-orange-500"></i>
                              <p class="ml-4 font-bold text-white">- A. Khan, Restaurant Owner</p>
                          </div>
                      </div>
-                     <div class="bg-black/50 backdrop-blur-sm p-8 rounded-lg text-left">
+                     <div class="bg-black/50 backdrop-blur-sm p-8 rounded-lg text-left fade-in" style="transition-delay: 100ms;">
                          <p class="text-gray-300 mb-4">"The solar panel installation was seamless from start to finish. The team was knowledgeable and answered all my questions. We're already seeing a huge drop in our electricity bills."</p>
                          <div class="flex items-center">
                              <i class="fas fa-star text-orange-500"></i><i class="fas fa-star text-orange-500"></i><i class="fas fa-star text-orange-500"></i><i class="fas fa-star text-orange-500"></i><i class="fas fa-star text-orange-500"></i>
@@ -151,37 +205,35 @@
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="py-20 bg-gray-800">
+        <section id="contact" class="py-20 bg-gray-900">
             <div class="container mx-auto px-6">
-                <div class="text-center mb-12">
+                <div class="text-center mb-12 fade-in">
                     <h2 class="text-3xl md:text-4xl font-bold text-white">Contact Our Experts</h2>
                     <p class="text-gray-400 mt-2">Ready to start your next project? We're here to help.</p>
                 </div>
-                <div class="max-w-4xl mx-auto bg-gray-900 p-8 rounded-lg shadow-lg">
+                <div class="max-w-4xl mx-auto bg-gray-800 p-8 rounded-lg shadow-lg fade-in">
                     <div class="grid md:grid-cols-2 gap-8 text-center">
-                        <!-- Contact Person 1 -->
                         <div>
                             <h3 class="text-2xl font-bold text-white mb-4">Hammad Elahi</h3>
                             <div class="space-y-3">
-                                <a href="tel:0312-6535563" class="flex items-center justify-center space-x-3 text-gray-300 hover:text-orange-500">
+                                <a href="tel:0312-6535563" class="flex items-center justify-center space-x-3 text-gray-300 hover:text-orange-500 transition-colors duration-300">
                                     <i class="fas fa-phone"></i>
                                     <span>0312-6535563</span>
                                 </a>
-                                <a href="tel:0304-0414519" class="flex items-center justify-center space-x-3 text-gray-300 hover:text-orange-500">
+                                <a href="tel:0304-0414519" class="flex items-center justify-center space-x-3 text-gray-300 hover:text-orange-500 transition-colors duration-300">
                                     <i class="fas fa-mobile-alt"></i>
                                     <span>0304-0414519</span>
                                 </a>
                             </div>
                         </div>
-                        <!-- Contact Person 2 -->
                         <div>
                             <h3 class="text-2xl font-bold text-white mb-4">Abdul Rehman</h3>
                             <div class="space-y-3">
-                                <a href="tel:0304-1458400" class="flex items-center justify-center space-x-3 text-gray-300 hover:text-orange-500">
+                                <a href="tel:0304-1458400" class="flex items-center justify-center space-x-3 text-gray-300 hover:text-orange-500 transition-colors duration-300">
                                     <i class="fas fa-phone"></i>
                                     <span>0304-1458400</span>
                                 </a>
-                                <a href="tel:0334-1458400" class="flex items-center justify-center space-x-3 text-gray-300 hover:text-orange-500">
+                                <a href="tel:0334-1458400" class="flex items-center justify-center space-x-3 text-gray-300 hover:text-orange-500 transition-colors duration-300">
                                     <i class="fas fa-mobile-alt"></i>
                                     <span>0334-1458400</span>
                                 </a>
@@ -201,6 +253,11 @@
         </div>
     </footer>
 
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/923126535563" target="_blank" class="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition-transform transform hover:scale-110">
+        <i class="fab fa-whatsapp fa-2x"></i>
+    </a>
+
     <script>
         // Mobile menu toggle
         const mobileMenuButton = document.getElementById('mobile-menu-button');
@@ -209,6 +266,20 @@
         mobileMenuButton.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
         });
+
+        // Scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        const fadeIns = document.querySelectorAll('.fade-in');
+        fadeIns.forEach(el => observer.observe(el));
     </script>
 
 </body>
